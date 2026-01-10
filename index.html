@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JiHyun Kim - Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            background: white;
+        }
+
+        .btn-secondary:hover {
+            background: #eff6ff;
+        }
+
+        /* Section */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .skills-section {
+            margin-top: 3rem;
+        }
+
+        .skills-category {
+            margin-bottom: 2.5rem;
+        }
+
+        .skills-category h3 {
+            color: #1a1a1a;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #2563eb;
+            display: inline-block;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            padding: 8px 18px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: #fafafa;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: #2563eb;
+        }
+
+        .project-card h3 {
+            color: #1a1a1a;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-date {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card > p {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-highlights {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-highlights li {
+            color: #4b5563;
+            font-size: 0.9rem;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.6rem;
+            line-height: 1.6;
+        }
+
+        .project-highlights li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-badge {
+            padding: 5px 12px;
+            background: #eff6ff;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .project-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        /* Experience Section */
+        .experience-list {
+            max-width: 800px;
+        }
+
+        .experience-item {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            border-left: 3px solid #2563eb;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .experience-item h3 {
+            color: #1a1a1a;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item h4 {
+            color: #2563eb;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-item li {
+            color: #4b5563;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.6rem;
+            line-height: 1.7;
+        }
+
+        .experience-item li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: #fafafa;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            color: #4b5563;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 6px;
+            border: 2px solid #e5e5e5;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+            background: #eff6ff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2.5rem 0;
+            border-top: 1px solid #e5e5e5;
+            color: #9ca3af;
+            background: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-logo">JH</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>JiHyun Kim</h1>
+                <h2>Software Engineer & AI/ML Enthusiast</h2>
+                <p>Building intelligent systems and user-centric applications. Passionate about deep learning, full-stack development, and solving real-world problems through technology.</p>
+                <div class="hero-links">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="https://github.com/yourusername" target="_blank" class="btn btn-secondary">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a final-year Information Technology student at James Cook University Singapore, specializing in AI/ML and full-stack development.
+                        My experience spans from deep learning and computer vision to building scalable web applications and cloud infrastructure.
+                    </p>
+                    <p>
+                        Currently focused on developing intelligent systems that make a meaningful impact, with hands-on experience in projects ranging from
+                        wildlife conservation through image classification to healthcare solutions for the elderly.
+                    </p>
+                </div>
+
+                <div class="skills-section">
+                    <div class="skills-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Kotlin</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3>AI/ML & Data Science</h3>
+                        <div class="skills">
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">FastAI</span>
+                            <span class="skill-tag">scikit-learn</span>
+                            <span class="skill-tag">XGBoost</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3>Web & Mobile Development</h3>
+                        <div class="skills">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">Firebase</span>
+                            <span class="skill-tag">Android Studio</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3>Cloud & DevOps</h3>
+                        <div class="skills">
+                            <span class="skill-tag">AWS (EC2, VPC)</span>
+                            <span class="skill-tag">Git/GitHub</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Shell Scripting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3>Wildlife Image Classification</h3>
+                    <div class="project-date">June - July 2025</div>
+                    <p>
+                        Deep learning model for wildlife conservation using computer vision to classify 16,448 camera trap images into 8 species.
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Achieved LogLoss of 1.2698 on Kaggle public leaderboard</li>
+                            <li>Implemented stratified K-fold validation to prevent data leakage</li>
+                            <li>Applied advanced augmentation: RandomErasing, MixUp, TTA</li>
+                            <li>Experimented with ConvNeXt, ResNet, ViT architectures</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">FastAI</span>
+                        <span class="tech-badge">PyTorch</span>
+                        <span class="tech-badge">ConvNeXt</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3>ElderConnect 🏆</h3>
+                    <div class="project-date">June - July 2025</div>
+                    <p>
+                        AI-powered healthcare platform for Singapore's elderly population. Led a multidisciplinary team of 5 as Project Manager.
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Won 1st place at JCU MDP Convergence Conference 2025</li>
+                            <li>Designed accessible UI with large fonts and voice guidance</li>
+                            <li>Features: health alerts, telemedicine, emergency SOS</li>
+                            <li>Currently developing functional prototype with Kotlin</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">Figma</span>
+                        <span class="tech-badge">Kotlin</span>
+                        <span class="tech-badge">Firebase</span>
+                        <span class="tech-badge">UX Design</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Case Study →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3>JCU Gym Management System</h3>
+                    <div class="project-date">June - July 2025</div>
+                    <p>
+                        Full-stack web application for gym session booking and user management using Agile methodology.
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Completed 7 user stories across 2 sprints</li>
+                            <li>Implemented real-time booking with Firestore</li>
+                            <li>Firebase Authentication for secure login</li>
+                            <li>Managed version control and resolved merge conflicts</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Firebase</span>
+                        <span class="tech-badge">HTML/CSS</span>
+                        <span class="tech-badge">Node.js</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <h3>Employee Attrition Prediction</h3>
+                    <div class="project-date">March - April 2025</div>
+                    <p>
+                        Machine learning model to predict employee turnover using IBM HR Analytics dataset with 1,470 records and 35 features.
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Achieved F1-score of 0.92 with XGBoost</li>
+                            <li>Handled class imbalance with SMOTENC</li>
+                            <li>Feature engineering: attrition risk scores, ratio features</li>
+                            <li>Compared Decision Trees, SVM, Neural Networks</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">XGBoost</span>
+                        <span class="tech-badge">scikit-learn</span>
+                        <span class="tech-badge">Pandas</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <h3>Music List Management System</h3>
+                    <div class="project-date">February - April 2025</div>
+                    <p>
+                        Two-phase application demonstrating evolution from procedural to object-oriented programming with GUI implementation.
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Built cross-platform GUI with Kivy framework</li>
+                            <li>Implemented OOP design with custom classes</li>
+                            <li>CSV/JSON file processing with error handling</li>
+                            <li>Comprehensive unit testing and PEP 8 compliance</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Kivy</span>
+                        <span class="tech-badge">Git</span>
+                        <span class="tech-badge">OOP</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <h3>AWS Web Server Infrastructure</h3>
+                    <div class="project-date">February - March 2025</div>
+                    <p>
+                        Cloud infrastructure project building VPC, EC2 instances, and deploying Apache web server using AWS CLI.
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Built VPC with public/private subnets</li>
+                            <li>Configured security groups for HTTP/SSH access</li>
+                            <li>Automated provisioning with Shell scripting</li>
+                            <li>Implemented Internet Gateway and NAT Gateway</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">AWS CLI</span>
+                        <span class="tech-badge">EC2</span>
+                        <span class="tech-badge">VPC</span>
+                        <span class="tech-badge">Shell Script</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View GitHub →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Leadership & Activities</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <h3>JCU Nuri Korean Student Community</h3>
+                    <h4>President & Vice President</h4>
+                    <ul>
+                        <li>Led community and organized multicultural events to enhance campus diversity</li>
+                        <li>Collaborated with other cultural groups to promote intercultural exchange</li>
+                        <li>Managed daily operations and ensured smooth event execution</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>JCU Student Council</h3>
+                    <h4>Cultural Affairs Director</h4>
+                    <ul>
+                        <li>Spearheaded cultural events and initiatives to foster intercultural dialogue</li>
+                        <li>Enhanced student engagement through diverse programming</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>Currently seeking new opportunities in software engineering and AI/ML. Let's connect!</p>
+                <div class="contact-links">
+                    <a href="mailto:jihyunkimm1120@gmail.com" class="contact-item">
+                        📧 Email
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank" class="contact-item">
+                        💻 GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-item">
+                        💼 LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 JiHyun Kim. Built with HTML, CSS, and JavaScript. Hosted on GitHub Pages.</p>
+        </div>
+    </footer>
+</body>
+</html>
