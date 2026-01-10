@@ -1,2 +1,0 @@
-# jihyunkim
-Personal Portfolio Website
